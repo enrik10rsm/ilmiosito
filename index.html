@@ -1,157 +1,284 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Il mio sito</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-            background-color: lightblue;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            color: #34495e;
-            font-size: 18px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+      }
+
+      .chiaro {
+        background-color: lightblue;
+        color: darkblue;
+      }
+      .scuro {
+        background-color: darkblue;
+        color: lightblue;
+      }
+
+      h1 {
+        color: #2c3e50;
+      }
+
+      p {
+        font-size: 18px;
+      }
+      button {
+        background-color: lightgreen;
+        color: white;
+        padding: 20px 40px; /* Aumenta la dimensione */
+        font-size: 24px; /* Testo più grande */
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: lightskyblue;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #2196f3;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
     </style>
-    <style>
-        button {
-          background-color: lightgreen;
-          color: white;
-          padding: 20px 40px; /* Aumenta la dimensione */
-          font-size: 24px; /* Testo più grande */
-          border: none;
-          cursor: pointer;
+    <script>
+      function cambiaColore() {
+        const body = document.querySelector("body");
+        if (body.classList.contains("chiaro")) {
+          body.classList.remove("chiaro");
+          body.classList.add("scuro");
+        } else {
+          body.classList.remove("scuro");
+          body.classList.add("chiaro");
         }
-        button:hover {
-          background-color: lightskyblue;
-        }
-      </style>
-      
-      <button onclick="alert('Benvenuto, questo è il mio sito dove vi racconterò un pò di me!')">Benvenuto</button>
-</head>
-<body>
+      }
+    </script>
+  </head>
+  <body class="chiaro">
+    <nav>NAVBAR</nav>
+    <button
+      onclick="alert('Benvenuto, questo è il mio sito dove vi racconterò un pò di me!')"
+    >
+      Benvenuto
+    </button>
+    <button onclick="cambiaColore()">CAMBIA COLORE</button>
+    <label class="switch">
+      <input type="checkbox" id="theme-switch" onchange="cambiaColore()" />
+      <span class="slider"></span>
+    </label>
     <h1>Ciao, sono Enrico!</h1>
     <p>Benvenuti nel mio sito di presentazione personale.</p>
     <p>Adoro lo sport, soprattutto il calcio e il tennis.</p>
     <p>Sono un tifoso della Juventus e un fan di Jannik Sinner.</p>
     <p>Amo anche la musica e mi piace scoprire nuovi generi.</p>
-    <h1>Chi sono?<h1></h1>
-   <p></p><strong>Sono una ragazzo di San Marino, ho 15 anni compiuti il 10 Febbraio, mi piace l'estate, il tennis e il calcio, la mia squadra preferita è la Vecchia Signora.</strong><p></p>
-   <img src="IMG_20250111_124858_PORTRAIT.jpg" alt="" width="365px" height="450px">
-   <h1>Dove studio?</h1>
-   <p><strong>Attualmente sto frequentanto la prima superiore indirizzo grafica pubblicitaria alle Maestre Pie di Rimini, sto frequentando questa scuola dalla prima media e per adesso mi sto trovando molto bene</strong></p>
-   <img src="scuola.jpg" alt="" width="450px" height="435px"> 
-   <button onclick="window.location.href='https://www.scuolemaestrepierimini.it/'">Sito Maestre Pie</button>
+    <h1>Chi sono?</h1>
 
-   <h1>I miei hobby</h1>
-   <p><strong>Calcio: A me piace tantissimo il calcio soprattutto vederlo in TV, il mio club preferito è la Juve.</strong></p>
-   <p><strong>Tennis: Sono anche un appassionato di tennis; i miei tennisti preferiti sono  Novak Djokovic e anche Jannik Sinner.</strong></p>
-   <img src="sinner.jpg" alt="" height="250px">
-   <img src="juve s.jpg" alt="" height="250px">
-   <img src="djokovic.jpg" alt="" height="250px">
-   <h1>Sono un appassionato di shopping online.</h1>
-   <p><strong>Io al mese faccio molti aqquisti, soprattutto su Amazon nel reparto tecnologia. Infatti a me affascina moltissimo la tecnologia soprattutto sui pc laptop e computer fissi sia su l'intelligenza artificiale, la mia IA preferita e usata tutti i giorni è Gemini di Google seguita da Chatgpt.</strong></p>
-   <button onclick="window.location.href='https://www.amazon.it/';">
-    Amazon.it
-</button>
-   <img src="amazon.png" alt="" width="135px" height="135px">
-   <h1>I miei videogiochi preferiti</h1>
-   <h2>TOP THREE</h2>
-   <table border="1">
-    <tr>
+    <div>
+      <strong
+        >Sono una ragazzo di San Marino, ho 15 anni compiuti il 10 Febbraio, mi
+        piace l'estate, il tennis e il calcio, la mia squadra preferita è la
+        Vecchia Signora.</strong
+      >
+    </div>
+
+    <img
+      src="IMG_20250111_124858_PORTRAIT.jpg"
+      alt=""
+      width="365px"
+      height="450px"
+    />
+    <h1>Dove studio?</h1>
+    <p>
+      <strong
+        >Attualmente sto frequentanto la prima superiore indirizzo grafica
+        pubblicitaria alle Maestre Pie di Rimini, sto frequentando questa scuola
+        dalla prima media e per adesso mi sto trovando molto bene</strong
+      >
+    </p>
+    <img src="scuola.jpg" alt="" width="450px" height="435px" />
+    <button
+      onclick="window.location.href='https://www.scuolemaestrepierimini.it/'"
+    >
+      Sito Maestre Pie
+    </button>
+
+    <h1>I miei hobby</h1>
+    <p>
+      <strong
+        >Calcio: A me piace tantissimo il calcio soprattutto vederlo in TV, il
+        mio club preferito è la Juve.</strong
+      >
+    </p>
+    <p>
+      <strong
+        >Tennis: Sono anche un appassionato di tennis; i miei tennisti preferiti
+        sono Novak Djokovic e anche Jannik Sinner.</strong
+      >
+    </p>
+    <img src="sinner.jpg" alt="" height="250px" />
+    <img src="juve s.jpg" alt="" height="250px" />
+    <img src="djokovic.jpg" alt="" height="250px" />
+    <h1>Sono un appassionato di shopping online.</h1>
+    <p>
+      <strong
+        >Io al mese faccio molti aqquisti, soprattutto su Amazon nel reparto
+        tecnologia. Infatti a me affascina moltissimo la tecnologia soprattutto
+        sui pc laptop e computer fissi sia su l'intelligenza artificiale, la mia
+        IA preferita e usata tutti i giorni è Gemini di Google seguita da
+        Chatgpt.</strong
+      >
+    </p>
+    <button onclick="window.location.href='https://www.amazon.it/';">
+      Amazon.it
+    </button>
+    <img src="amazon.png" alt="" width="135px" height="135px" />
+    <h1>I miei videogiochi preferiti</h1>
+    <h2>TOP THREE</h2>
+    <table border="1">
+      <tr>
         <th>Gioco</th>
         <th>Voto</th>
         <th>Commento</th>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>Fc 25</td>
         <td>8.5</td>
         <td>Gioco di squadra, molto bello per chi ama il calcio</td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>Call of duty</td>
         <td>9-</td>
         <td>Gico sparatutto, molto movimentato e molto di azione</td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>Minecraft</td>
         <td>9</td>
-        <td>Gioco di sopravvivenza con quattro modalità: pacifica, facile, normale ed estrema</td>
-        <button onclick="window.location.href='https://www.ea.com/games/ea-sports-fc/fc-25/buy';">
-            Fc 25 dowload for pc
+        <td>
+          Gioco di sopravvivenza con quattro modalità: pacifica, facile, normale
+          ed estrema
+        </td>
+        <button
+          onclick="window.location.href='https://www.ea.com/games/ea-sports-fc/fc-25/buy';"
+        >
+          Fc 25 dowload for pc
         </button>
-        <button onclick="window.location.href='https://www.callofduty.com/modernwarfare/pc';">
-            Call of duty dowload for pc
+        <button
+          onclick="window.location.href='https://www.callofduty.com/modernwarfare/pc';"
+        >
+          Call of duty dowload for pc
         </button>
-        <button onclick="window.location.href='https://www.minecraft.net/en-us/download';">
-            Minecraft dowload for pc
+        <button
+          onclick="window.location.href='https://www.minecraft.net/en-us/download';"
+        >
+          Minecraft dowload for pc
         </button>
-    </tr>
-</table>
-</button>
-<div id="quiz-container">
-    <h3><strong>Tempo rimasto:</strong> <span id="timer">60</span> secondi</h3>
-<button id="start-button">Avvia Timer</button>
-    <h2>Quiz sul Calcio</h2>
-    <p id="question"></p>
-    <button onclick="checkAnswer(0)" id="btn0"></button>
-    <button onclick="checkAnswer(1)" id="btn1"></button>
-    <button onclick="checkAnswer(2)" id="btn2"></button>
-    <p id="result"></p>
-</div>
-<h3>Quale squadra ha vinto più Champions League nella storia?</h3>
-<p>Inter</p>
-<p>Juventus</p>
-<p>Real Madrid</p>
-<p>Arsenal</p>
-<h3>In quale anno l'Italia ha vinto il suo ultimo Mondiale?</h3>
-<p>2006</p>
-<p>1930</p>
-<p>1934</p>
-<p>1950</p>
-<h3>Quale giocatore ha vinto più Palloni d'Oro?</h3>
-<p>Cristiano Ronaldo</p>
-<p>Del piero</p>
-<p>Ronaldo Nazario</p>
-<p>Zidane</p>
-<p>Messi</p>
-<h3>Chi ha segnato il gol decisivo nella finale di Euro 2020?</h3>
-<p>Chiellini</p>
-<p>Bonucci</p>
-<p>Donnarumma</p>
-<p>Barella</p>
-<h3>Qual è il soprannome della Juventus?</h3>
-<p>Vecchia anziana</p>
-<p>Bianconera</p>
-<p>Vecchia signora</p>
-<p>Giovane signora</p>
-<div id="quiz-container">
-    <h3><strong>Tempo rimasto:</strong> <span id="timer">60</span> secondi</h3>
-<button id="start-button">Avvia Timer</button>
-    <h2>Quiz sul Tennis</h2>
-    <p id="question"></p>
-    <button onclick="checkAnswer(0)" id="btn0"></button>
-    <button onclick="checkAnswer(1)" id="btn1"></button>
-    <button onclick="checkAnswer(2)" id="btn2"></button>
-    <p id="result"></p>
-</div>
-<h3>Chi è il tennista con più titoli del Grande Slam nella storia?</h3>
-<p>Federer</p>
-<p>Nadal</p>
-<p>Djokovic</p>
-<h3>Quale torneo del Grande Slam si gioca sulla terra rossa?</h3>
-<p>Zverev</p>
-<p>Sinner</p>
-<p>Panatta</p>
-<h3>Chi è stato il primo italiano a diventare numero 1 al mondo ATP?</h3>
-<p>Sinner</p>
-<p>Fognini</p>
-<p>Musetti</p>
-</body>
+      </tr>
+    </table>
+
+    <div id="quiz-container">
+      <h3>
+        <strong>Tempo rimasto:</strong> <span id="timer">60</span> secondi
+      </h3>
+      <button id="start-button">Avvia Timer</button>
+      <h2>Quiz sul Calcio</h2>
+      <p id="question"></p>
+      <button onclick="checkAnswer(0)" id="btn0"></button>
+      <button onclick="checkAnswer(1)" id="btn1"></button>
+      <button onclick="checkAnswer(2)" id="btn2"></button>
+      <p id="result"></p>
+    </div>
+    <h3>Quale squadra ha vinto più Champions League nella storia?</h3>
+    <p>Inter</p>
+    <p>Juventus</p>
+    <p>Real Madrid</p>
+    <p>Arsenal</p>
+    <h3>In quale anno l'Italia ha vinto il suo ultimo Mondiale?</h3>
+    <p>2006</p>
+    <p>1930</p>
+    <p>1934</p>
+    <p>1950</p>
+    <h3>Quale giocatore ha vinto più Palloni d'Oro?</h3>
+    <p>Cristiano Ronaldo</p>
+    <p>Del piero</p>
+    <p>Ronaldo Nazario</p>
+    <p>Zidane</p>
+    <p>Messi</p>
+    <h3>Chi ha segnato il gol decisivo nella finale di Euro 2020?</h3>
+    <p>Chiellini</p>
+    <p>Bonucci</p>
+    <p>Donnarumma</p>
+    <p>Barella</p>
+    <h3>Qual è il soprannome della Juventus?</h3>
+    <p>Vecchia anziana</p>
+    <p>Bianconera</p>
+    <p>Vecchia signora</p>
+    <p>Giovane signora</p>
+    <div id="quiz-container">
+      <h3>
+        <strong>Tempo rimasto:</strong> <span id="timer">60</span> secondi
+      </h3>
+      <button id="start-button">Avvia Timer</button>
+      <h2>Quiz sul Tennis</h2>
+      <p id="question"></p>
+      <button onclick="checkAnswer(0)" id="btn0"></button>
+      <button onclick="checkAnswer(1)" id="btn1"></button>
+      <button onclick="checkAnswer(2)" id="btn2"></button>
+      <p id="result"></p>
+    </div>
+    <h3>Chi è il tennista con più titoli del Grande Slam nella storia?</h3>
+    <p>Federer</p>
+    <p>Nadal</p>
+    <p>Djokovic</p>
+    <h3>Quale torneo del Grande Slam si gioca sulla terra rossa?</h3>
+    <p>Zverev</p>
+    <p>Sinner</p>
+    <p>Panatta</p>
+    <h3>Chi è stato il primo italiano a diventare numero 1 al mondo ATP?</h3>
+    <p>Sinner</p>
+    <p>Fognini</p>
+    <p>Musetti</p>
+  </body>
 </html>
