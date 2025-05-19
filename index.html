@@ -98,13 +98,12 @@
     </script>
   </head>
   <body class="chiaro">
-    <nav>NAVBAR</nav>
     <button
       onclick="alert('Benvenuto, questo è il mio sito dove vi racconterò un pò di me!')"
     >
       Benvenuto
     </button>
-    <button onclick="cambiaColore()">CAMBIA COLORE</button>
+
     <label class="switch">
       <input type="checkbox" id="theme-switch" onchange="cambiaColore()" />
       <span class="slider"></span>
@@ -280,5 +279,31 @@
     <p>Sinner</p>
     <p>Fognini</p>
     <p>Musetti</p>
+    <button
+      style="
+        background-color: yellow;
+        color: blue;
+        padding: 50px 50px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+      "
+      onclick="window.location.href='mailto:garbellanoe@gmail.com';"
+    >
+      Parla con me
+    </button>
+    <a
+      href="Prossima pagina"
+      style="
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+      "
+    >
+      &#8594; Pagina successiva
+    </a>
   </body>
 </html>
