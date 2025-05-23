@@ -97,12 +97,22 @@
     </script>
   </head>
   <body class="chiaro">
+        <div style="font-size: 2rem; margin: 40px;">
+      <span id="cuore" style="cursor:pointer;">❤️</span>
+      <span id="contatore-cuore">0</span>
+    </div>
+    <script>
+      let contaCuore = 0;
+      document.getElementById('cuore').onclick = function() {
+        contaCuore++;
+        document.getElementById('contatore-cuore').textContent = contaCuore;
+      }
+    </script>
     <button
       onclick="alert('Benvenuto, questo è il mio sito dove vi racconterò un pò di me!')"
     >
       Benvenuto
     </button>
-
     <label class="switch">
       <input type="checkbox" id="theme-switch" onchange="cambiaColore()" />
       <span class="slider"></span>
@@ -431,6 +441,6 @@
       onclick="window.open('https://wa.me/393381893520?', '_blank');"
     >
       Scrivimi su WhatsApp
-    </button>
+    </button>4
   </body>
 </html>
