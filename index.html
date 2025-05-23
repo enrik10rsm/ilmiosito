@@ -7,6 +7,7 @@
     <style>
       body {
         font-family: Arial, sans-serif;
+        
         margin: 20px;
         text-align: center;
       }
@@ -267,13 +268,35 @@
         </button>
       </tr>
     </table>
+<div style="margin: 30px;">
+    <h2>Quiz sul Calcio</h2>
+  <h3>
+    <strong>Tempo rimasto:</strong> <span id="timer60">60</span> secondi
+  </h3>
+  <button id="start-timer60" style="background-color: orange; color: white; padding: 10px 20px; font-size: 18px; border-radius: 10px; border: none; cursor: pointer;">
+    Avvia Timer
+  </button>
+</div>
+<script>
+  let timer660Interval;
 
-    <div id="quiz-container">
-      <h3>
-        <strong>Tempo rimasto:</strong> <span id="timer">60</span> secondi
-      </h3>
-      <button style="border-radius: 30px;" id="start-button">Avvia Timer</button>
-      <h2>Quiz sul Calcio</h2>
+  document.getElementById("start-timer60").addEventListener("click", function () {
+    let timeLeft = 60;
+    const timerElement = document.getElementById("timer60");
+
+    clearInterval(timer660Interval);
+
+    timerElement.textContent = timeLeft;
+    timer660Interval = setInterval(function () {
+      timeLeft--;
+      timerElement.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timer660Interval);
+        timerElement.textContent = "Tempo scaduto!";
+      }
+    }, 1000);
+  });
+</script>
       <p id="question"></p>
       <button onclick="checkAnswer(0)" id="btn0"></button>
       <button onclick="checkAnswer(1)" id="btn1"></button>
@@ -376,19 +399,36 @@
     >
       Vecchia signora
     </button></p>
-    <p> </button></p>
-    <div id="quiz-container">
-      <h3>
-        <strong>Tempo rimasto:</strong> <span id="timer">60</span> secondi
-      </h3>
-      <button style="border-radius: 30px" id="start-button">Avvia Timer</button>
-      <h2>Quiz sul Tennis</h2>
-      <p id="question"></p>
-      <button onclick="checkAnswer(0)" id="btn0"></button>
-      <button onclick="checkAnswer(1)" id="btn1"></button>
-      <button onclick="checkAnswer(2)" id="btn2"></button>
-      <p id="result"></p>
-    </div>
+    <div style="margin: 30px;">
+    <h2>Quiz sul Tennis</h2>
+  <h3>
+    <strong>Tempo rimasto:</strong> <span id="timer60">60</span> secondi
+  </h3>
+  <button id="start-timer60" style="background-color: orange; color: white; padding: 10px 20px; font-size: 18px; border-radius: 10px; border: none; cursor: pointer;">
+    Avvia Timer
+  </button>
+</div>
+<script>
+  let timer60Interval;
+
+  document.getElementById("start-timer60").addEventListener("click", function () {
+    let timeLeft = 60;
+    const timerElement = document.getElementById("timer60");
+
+    clearInterval(timer660Interval);
+
+    timerElement.textContent = timeLeft;
+    timer660Interval = setInterval(function () {
+      timeLeft--;
+      timerElement.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timer660Interval);
+        timerElement.textContent = "Tempo scaduto!";
+      }
+    }, 1000);
+  });
+</script>
+
     <h3>Chi è il tennista con più titoli del Grande Slam nella storia?</h3>
     <p>
     <p> <button
