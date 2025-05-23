@@ -97,17 +97,40 @@
     </script>
   </head>
   <body class="chiaro">
-        <div style="font-size: 2rem; margin: 40px;">
-      <span id="cuore" style="cursor:pointer;">❤️</span>
-      <span id="contatore-cuore">0</span>
-    </div>
-    <script>
-      let contaCuore = 0;
-      document.getElementById('cuore').onclick = function() {
-        contaCuore++;
-        document.getElementById('contatore-cuore').textContent = contaCuore;
-      }
-    </script>
+    <div style="font-size: 2rem; margin: 20px;">
+  <span id="cuore" style="cursor:pointer; user-select:none;">🤍</span>
+  <span id="contatore-cuore">0</span>
+</div>
+<script>
+  // Recupera stato e conteggio dal localStorage
+  let liked = localStorage.getItem('cuoreLiked') === 'true';
+  let contaCuore = parseInt(localStorage.getItem('cuoreCount')) || 0;
+
+  const cuore = document.getElementById('cuore');
+  const contatore = document.getElementById('contatore-cuore');
+
+  // Aggiorna la visualizzazione iniziale
+  aggiornaCuore();
+
+  cuore.onclick = function() {
+    if (!liked) {
+      contaCuore++;
+      liked = true;
+    } else {
+      contaCuore--;
+      liked = false;
+    }
+    // Salva stato e conteggio
+    localStorage.setItem('cuoreLiked', liked);
+    localStorage.setItem('cuoreCount', contaCuore);
+    aggiornaCuore();
+  };
+
+  function aggiornaCuore() {
+    cuore.textContent = liked ? '❤️' : '🤍';
+    contatore.textContent = contaCuore;
+  }
+</script>
     <button
       onclick="alert('Benvenuto, questo è il mio sito dove vi racconterò un pò di me!')"
     >
@@ -172,7 +195,7 @@
     <h1>Sono un appassionato di shopping online.</h1>
     <p>
       <strong
-        >Io al mese faccio molti aqquisti, soprattutto su Amazon nel reparto
+        >Io al mese faccio molti acquisti, soprattutto su Amazon nel reparto
         tecnologia. Infatti a me affascina moltissimo la tecnologia soprattutto
         sui pc laptop e computer fissi sia su l'intelligenza artificiale, la mia
         IA preferita e usata tutti i giorni è Gemini di Google seguita da
