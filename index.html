@@ -98,6 +98,43 @@
     </script>
   </head>
   <body class="chiaro">
+    <body class="chiaro">
+  <!-- Pallino rosso che segue il mouse -->
+  <div id="pallino-rosso"></div>
+  <style>
+    #pallino-rosso {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transition: box-shadow 0.1s;
+      box-shadow: 0 0 10px 2px #ff0000aa;
+    }
+  </style>
+  <script>
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let targetX = x;
+    let targetY = y;
+    const pallino = document.getElementById('pallino-rosso');
+    document.addEventListener('mousemove', function(e) {
+      targetX = e.clientX - 15;
+      targetY = e.clientY - 15;
+    });
+    function animaPallino() {
+      x += (targetX - x) * 0.15;
+      y += (targetY - y) * 0.15;
+      pallino.style.left = x + 'px';
+      pallino.style.top = y + 'px';
+      requestAnimationFrame(animaPallino);
+    }
+    animaPallino();
+  </script>
     <div style="font-size: 2rem; margin: 20px;">
   <span id="cuore" style="cursor:pointer; user-select:none;">🤍</span>
   <span id="contatore-cuore">0</span>
@@ -399,34 +436,35 @@
     >
       Vecchia signora
     </button></p>
-<div style="margin: 30px;">
+    <div style="margin: 30px;">
     <h2>Quiz sul Tennis</h2>
   <h3>
-    <strong>Tempo rimasto:</strong> <span id="timer60">60</span> secondi
+    <strong>Tempo rimasto:</strong> <span id="timer60tennis">60</span> secondi
   </h3>
-  <button id="start-timer60" style="background-color: orange; color: white; padding: 10px 20px; font-size: 18px; border-radius: 10px; border: none; cursor: pointer;">
+  <button id="start-timer60tennis" style="background-color: orange; color: white; padding: 10px 20px; font-size: 18px; border-radius: 10px; border: none; cursor: pointer;">
     Avvia Timer
   </button>
 </div>
 <script>
-  let timer660Interval;
+  let timerTennisInterval;
 
-  document.getElementById("start-timer60").addEventListener("click", function () {
+  document.getElementById("start-timer60tennis").addEventListener("click", function () {
     let timeLeft = 60;
-    const timerElement = document.getElementById("timer60");
+    const timerElement = document.getElementById("timer60tennis");
 
-    clearInterval(timer660Interval);
+    clearInterval(timerTennisInterval);
 
     timerElement.textContent = timeLeft;
-    timer660Interval = setInterval(function () {
+    timerTennisInterval = setInterval(function () {
       timeLeft--;
       timerElement.textContent = timeLeft;
       if (timeLeft <= 0) {
-        clearInterval(timer660Interval);
+        clearInterval(timerTennisInterval);
         timerElement.textContent = "Tempo scaduto!";
       }
     }, 1000);
   });
+</script>
 </script>
     <h3>Chi è il tennista con più titoli del Grande Slam nella storia?</h3>
     <p>
